@@ -20,12 +20,11 @@ namespace UserRegistrationTest
             string Password = "Madhur@123";
 
             // Act
-            Program program = new Program();
-            bool isvalidFirstName = program.validFirstName(Firstname);
-            bool isvalidLastName = program.validLastName(Lastname);
-            bool isvalidPhoneNo = program.validPhoneno(Phoneno);
-            bool isvalidEmail = program.validEmail(Email);
-            bool isvalidPassword = program.validPassword(Password);
+            bool isvalidFirstName = p.validFirstName(Firstname);
+            bool isvalidLastName = p.validLastName(Lastname);
+            bool isvalidPhoneNo = p.validPhoneno(Phoneno);
+            bool isvalidEmail = p.validEmail(Email);
+            bool isvalidPassword = p.validPassword(Password);
 
             // Assert
             Assert.IsTrue(isvalidFirstName);
@@ -40,19 +39,18 @@ namespace UserRegistrationTest
             // Arrange
             Program p = new Program();
 
-            string Firstname = "Madhur";
-            string Lastname = "Verma";
-            string Phoneno = "91 8295475016";
-            string Email = "itzmadhurverma@gmail.com";
-            string Password = "Madhur@123";
+            string Firstname = "Jka123";
+            string Lastname = "Kj@l";
+            string Phoneno = "8923901238";
+            string Email = "asjkdiqwegmail.com";
+            string Password = "Mjasd";
 
             // Act
-            Program program = new Program();
-            bool isvalidFirstName = program.validFirstName(Firstname);
-            bool isvalidLastName = program.validLastName(Lastname);
-            bool isvalidPhoneNo = program.validPhoneno(Phoneno);
-            bool isvalidEmail = program.validEmail(Email);
-            bool isvalidPassword = program.validPassword(Password);
+            bool isvalidFirstName = p.validFirstName(Firstname);
+            bool isvalidLastName = p.validLastName(Lastname);
+            bool isvalidPhoneNo = p.validPhoneno(Phoneno);
+            bool isvalidEmail = p.validEmail(Email);
+            bool isvalidPassword = p.validPassword(Password);
 
             // Assert
             Assert.IsFalse(isvalidFirstName);
