@@ -53,66 +53,95 @@ namespace UserRegistrationProblem
             bool isvalidPhoneNo = program.validPhoneno(Phoneno);
             bool isvalidEmail = program.validEmail(Email);
             bool isvalidPassword = program.validPassword(Password);
-
-            if (isvalidFirstName)
+            try
             {
-                Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine("Valid");
-                Console.ResetColor();
+                if (isvalidFirstName)
+                {
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.WriteLine("Valid");
+                    Console.ResetColor();
+                }
+                else
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    throw new InvalidUserException("Invalid First Name");
+                }
             }
-            else
+            catch(InvalidUserException ex)
             {
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("Invalid");
-                Console.ResetColor();
+                Console.WriteLine("Error message :"+ex.Message);
             }
-            if (isvalidLastName)
+            try
             {
-                Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine("Valid");
-                Console.ResetColor();
+                if (isvalidLastName)
+                {
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.WriteLine("Valid");
+                    Console.ResetColor();
+                }
+                else
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    throw new InvalidUserException("Invalid Last Name");
+                }
             }
-            else
+            catch(InvalidUserException ex)
             {
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("Invalid");
-                Console.ResetColor();
+                Console.WriteLine("Error Message : "+ex.Message);
             }
-            if (isvalidPhoneNo)
+            try
             {
-                Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine("Valid");
-                Console.ResetColor();
+                if (isvalidPhoneNo)
+                {
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.WriteLine("Valid");
+                    Console.ResetColor();
+                }
+                else
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    throw new InvalidUserException("Invalid Phone no");
+                }
             }
-            else
+            catch(InvalidUserException ex)
             {
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("Invalid");
-                Console.ResetColor();
+                Console.WriteLine("Error Message is :"+ex.Message);
             }
-            if (isvalidEmail)
+            try
             {
-                Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine("Valid");
-                Console.ResetColor();
+                if (isvalidEmail)
+                {
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.WriteLine("Valid");
+                    Console.ResetColor();
+                }
+                else
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    throw new InvalidUserException("Invalid Email");
+                }
             }
-            else
+            catch(InvalidUserException ex)
             {
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("Invalid");
-                Console.ResetColor();
+                Console.WriteLine("Error Message is : "+ex.Message);
             }
-            if (isvalidPassword)
+            try
             {
-                Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine("Valid");
-                Console.ResetColor();
+                if (isvalidPassword)
+                {
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.WriteLine("Valid");
+                    Console.ResetColor();
+                }
+                else
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    throw new InvalidUserException("Invalid Password");
+                }
             }
-            else
+            catch(InvalidUserException ex)
             {
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("Invalid");
-                Console.ResetColor();
+                Console.WriteLine("Error Message is : "+ex.Message);
             }
         }
     }
