@@ -59,5 +59,17 @@ namespace UserRegistrationTest
             Assert.IsFalse(isvalidEmail);
             Assert.IsFalse(isvalidPassword);
         }
+        [TestMethod]
+        [DataRow("itzmadhurverma@gmail.com")]
+        [DataRow("vishalgarg@gmail.com")]
+        public void EnterMultipleEmails(string Email)
+        {
+            //Arrange
+            Program p = new Program();
+            //Act
+            bool isvalidEmail = p.validEmail(Email);
+            //Assert
+            Assert.IsTrue(isvalidEmail);
+        }
     }
 }
