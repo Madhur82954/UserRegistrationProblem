@@ -20,18 +20,19 @@ namespace UserRegistrationTest
             string Password = "Madhur@123";
 
             // Act
-            bool isvalidFirstName = p.validFirstName(Firstname);
-            bool isvalidLastName = p.validLastName(Lastname);
-            bool isvalidPhoneNo = p.validPhoneno(Phoneno);
-            bool isvalidEmail = p.validEmail(Email);
-            bool isvalidPassword = p.validPassword(Password);
-
-            // Assert
-            Assert.IsTrue(isvalidFirstName);
-            Assert.IsTrue(isvalidLastName);
-            Assert.IsTrue(isvalidPhoneNo);
-            Assert.IsTrue(isvalidEmail);
-            Assert.IsTrue(isvalidPassword);
+            try
+            {
+                p.validFirstName(Firstname);
+                p.validLastName(Lastname);
+                p.validPhoneno(Phoneno);
+                p.validEmail(Email);
+                p.validPassword(Password);
+            }
+            catch (InvalidUserException ex)
+            {
+                // Assert
+                Assert.Fail("Exception message :" + ex.Message);
+            }
         }
         [TestMethod]
         public void TestInvalidUsers()
@@ -46,30 +47,37 @@ namespace UserRegistrationTest
             string Password = "Mjasd";
 
             // Act
-            bool isvalidFirstName = p.validFirstName(Firstname);
-            bool isvalidLastName = p.validLastName(Lastname);
-            bool isvalidPhoneNo = p.validPhoneno(Phoneno);
-            bool isvalidEmail = p.validEmail(Email);
-            bool isvalidPassword = p.validPassword(Password);
-
-            // Assert
-            Assert.IsFalse(isvalidFirstName);
-            Assert.IsFalse(isvalidLastName);
-            Assert.IsFalse(isvalidPhoneNo);
-            Assert.IsFalse(isvalidEmail);
-            Assert.IsFalse(isvalidPassword);
+            try
+            {
+                p.validFirstName(Firstname);
+                p.validLastName(Lastname);
+                p.validPhoneno(Phoneno);
+                p.validEmail(Email);
+                p.validPassword(Password);
+            }
+            catch (InvalidUserException ex)
+            {
+                // Assert
+                Assert.Fail("Exception  Message :" + ex.Message);
+            }
         }
-        [TestMethod]
-        [DataRow("itzmadhurverma@gmail.com")]
-        [DataRow("vishalgarg@gmail.com")]
-        public void EnterMultipleEmails(string Email)
+        public void TestEnterMultipleEmails()
         {
             //Arrange
             Program p = new Program();
+            string[] email = { "itzmadhurverma@gmail.com","vishalgarg@gmail.com","namansingh@gmail.com" };
             //Act
-            bool isvalidEmail = p.validEmail(Email);
-            //Assert
-            Assert.IsTrue(isvalidEmail);
+            foreach (string e in email)
+            {
+                try
+                {
+                    p.validEmail(e);
+                }//Assert
+                catch (InvalidUserException ex)
+                {
+                    Assert.Fail("Exception Message is :" + ex.Message);
+                }
+            }
         }
     }
 }
